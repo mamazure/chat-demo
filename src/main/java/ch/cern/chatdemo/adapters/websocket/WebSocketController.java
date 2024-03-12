@@ -24,6 +24,7 @@ public class WebSocketController {
             for (var message : KafkaMessageConsumer.messageStorage.get(webChatUsername)) {
                 webSocketPublisher.publishMessage(message);
             }
+            KafkaMessageConsumer.messageStorage.remove(webChatUsername);
         }
     }
 
